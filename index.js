@@ -18,7 +18,7 @@ global.tokens = [];
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
   list = {
-    ar: ["1","2","3"],
+    ar: ["1","3"],
     get: {
       ok: 200,
       mock: 300,
