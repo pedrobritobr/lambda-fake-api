@@ -25,7 +25,7 @@ app.get('/', (_request, response) => {
       test: "funfando"
     }
   }
-  response.status(200).json({get: "200"});
+  response.status(200).json(list);
 });
 app.post('/', (_request, response) => {
   response.status(300).json({post: "300"});
