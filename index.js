@@ -34,5 +34,5 @@ app.delete('/', (_request, response) => {
 // app.use('/login', loginRouter);
 
 app.listen(process.env.PORT || PORT, () => {
-  console.log('Online');
+  console.log('Online on ', process.env.PORT || PORT);
 });
