@@ -33,6 +33,6 @@ app.delete('/', (_request, response) => {
 // app.use('/talker', talkerRouter);
 // app.use('/login', loginRouter);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log('Online');
 });
