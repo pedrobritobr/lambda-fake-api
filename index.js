@@ -17,22 +17,23 @@ global.tokens = [];
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
-  list = {
-    ar: ["1","3"],
-    get: {
-      ok: 200,
-      mock: 300,
-      test: "funfando"
-    }
-  }
+  list = [
+    {test0: "mock0"},
+    {test1: "mock1"},
+    {test2: "mock2"},
+    {test3: "mock3"},
+  ]
   response.status(200).json(list);
 });
+
 app.post('/', (_request, response) => {
   response.status(300).json({post: "300"});
 });
+
 app.put('/', (_request, response) => {
   response.status(400).json({put: "400"});
 });
+
 app.delete('/', (_request, response) => {
   response.status(500).json({delete: "500"});
 });
