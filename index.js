@@ -13,28 +13,42 @@ app.use(express.json());
 
 const HTTP_OK_STATUS = 200;
 const PORT = '3000';
-global.tokens = [];
+
+const list = [
+  {test0: "mock0"},
+  {test1: "mock1"},
+  {test2: "mock2"},
+  {test3: "mock3"},
+];
+
+const obj = {
+  "code": "200",
+  list
+}
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (_request, response) => {
-  list = [
-    {test0: "mock0"},
-    {test1: "mock1"},
-    {test2: "mock2"},
-    {test3: "mock3"},
-  ];
-
-  obj = {
-    "code": "200",
-    list
-  }
 
   response.status(200).json(obj);
 });
 
 app.post('/', (_request, response) => {
-  response.status(204).end();
+  return response.status(204).end();
 });
+
+
+app.post('/auth', (request, response) => {
+  const auth = request.rawHeaders.findIndex((i) => i === "Authorization") + 1
+  if (!auth) return response.status(204).end();
+
+  const userToken = request.rawHeaders[auth]
+  const validToken = "brito meu-token"
+
+  if (userToken !== validToken) return response.status(204).end();
+
+  return response.status(200).json({...obj, "auth": true});
+});
+
 
 app.put('/', (_request, response) => {
   response.status(400).json({put: "400"});
