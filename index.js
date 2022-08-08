@@ -42,7 +42,7 @@ app.post('/auth', (request, response) => {
   const auth = request.headers.authorization
   if (!auth) return response.status(204).end();
 
-  const validToken = "brito meu-token"
+  const validToken = "Basic cGVkcm86YnJpdG8="
   if (auth !== validToken) return response.status(204).end();
 
   return response.status(200).json({...obj, "auth": true});
