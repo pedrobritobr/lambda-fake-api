@@ -33,7 +33,7 @@ app.get('/', (_request, response) => {
 });
 
 app.post('/', (_request, response) => {
-  response.status(300).json({post: "300"});
+  response.status(204).end();
 });
 
 app.put('/', (_request, response) => {
