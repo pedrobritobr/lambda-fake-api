@@ -22,8 +22,14 @@ app.get('/', (_request, response) => {
     {test1: "mock1"},
     {test2: "mock2"},
     {test3: "mock3"},
-  ]
-  response.status(200).json(list);
+  ];
+
+  obj = {
+    "code": "200",
+    list
+  }
+
+  response.status(200).json(obj);
 });
 
 app.post('/', (_request, response) => {
