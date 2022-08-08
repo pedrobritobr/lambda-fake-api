@@ -38,13 +38,12 @@ app.post('/', (_request, response) => {
 
 
 app.post('/auth', (request, response) => {
-  const auth = request.rawHeaders.findIndex((i) => i === "Authorization") + 1
+  console.log(request.headers.authorization)
+  const auth = request.headers.authorization
   if (!auth) return response.status(204).end();
 
-  const userToken = request.rawHeaders[auth]
   const validToken = "brito meu-token"
-
-  if (userToken !== validToken) return response.status(204).end();
+  if (auth !== validToken) return response.status(204).end();
 
   return response.status(200).json({...obj, "auth": true});
 });
